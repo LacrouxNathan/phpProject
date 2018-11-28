@@ -4,20 +4,31 @@
 	 */
 	class Joueur
 	{
-		
-		private String ddn;
-		private int taille;
-		private int poids;
-		private int statut; //0-> actif, 1->absent, 2->Suspendu, 3-> blesse
-		private int poste; //0-> attaquant, 1-> defenseur
+		private $nom;
+		private $prenom;
+		private $ddn;
+		private $taille;
+		private $poids;
+		private $statut; //0-> actif, 1->absent, 2->Suspendu, 3-> blesse
+		private $poste; //0-> attaquant, 1-> defenseur
 
-		function __construct($ddn, $taille, $poids, $statut = 0, $poste = 0)
+		function __construct($nom, $prenom, $ddn, $taille, $poids, $statut = 0, $poste = 0)
 		{
+			$this->nom = $nom;
+			$this->prenom = $prenom;
 			$this->ddn = $ddn;
 			$this->taille = $taille;
 			$this->poids = $poids;
 			$this->statut = $statut;
 			$this->poste = $poste;
+		}
+
+		function getNom() {
+			return $this->nom;
+		}
+
+		function getPrenom() {
+			return $this->prenom;
 		}
 
 		function getDdn() {
