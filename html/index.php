@@ -13,23 +13,26 @@ $listeJ[] = new Joueur("Coquet", "Marie", "24/09/1999", 155, 90);
 	</head>
 
 	<body>
-		<table>
-			<tr>
-				<td>Nom</td>
-				<td>Prenom</td>
-				<td>Poste</td>
-				<td>Statut</td>
-			</tr>
-			<?php
-			foreach ($listeJ as $joueur) {
-				echo "<tr>
-						<td>".$joueur->getNom()."</td>
-						<td>".$joueur->getPrenom()."</td>
-						<td>".$joueur->getPoste()."</td>
-						<td>".$joueur->getStatut()."</td>
-					  </tr>";
-			}
-			?>
-		</table>
+		<?php include("menu.php");?>
+		<div id="tableau">
+			<table>
+				<tr>
+					<td>Nom</td>
+					<td>Prenom</td>
+					<td>Poste</td>
+					<td>Statut</td>
+				</tr>
+				<?php
+				foreach ($listeJ as $joueur) {
+					echo "<tr>
+							<td>".$joueur->getNom()."</td>
+							<td>".$joueur->getPrenom()."</td>
+							<td>".$joueur->getPoste()."</td>
+							<td>".$joueur->getStatut()."</td>
+						</tr>";
+				}
+				?>
+			</table>
+		</div>
 	</body>
 </html>

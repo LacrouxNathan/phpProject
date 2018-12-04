@@ -1,10 +1,45 @@
+body {
+    background-color: rgb(255, 244, 230);
+}
+
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
     height: 100%;
-    font-size: 30pt;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 20pt;
 }
 
 td {
     border: 1px solid black;
+}
+
+#tableau {
+    float: left;
+    width: 80%;
+}
+
+.vertical-menu {
+    width: 19%; /* Set a width if you like */
+    height: 100%;
+    float: left;
+    margin-right: 1%; 
+}
+
+.vertical-menu a {
+    background-color: rgb(255, 244, 230); 
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: rgb(255, 175, 71); /* Add a green color to the "active/current" link */
+    color: white;
 }
