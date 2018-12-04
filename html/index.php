@@ -1,7 +1,7 @@
 <?php
-require("Joueur.php");
-$listeJ = array(new Joueur("Auper", "Pascal", "14/07/1961", 178, 81));
-$listeJ[] = new Joueur("Coquet", "Marie", "24/09/1999", 155, 90);
+require("ListeDeJoueur.php");
+$listeJ = new ListeDeJoueurs();
+$listeJ = $listeJ->listeJoueurs();
 ?>
 
 <!DOCTYPE HTML>
