@@ -20,7 +20,7 @@
 					$linkpdo = new PDO("mysql:host=$server;dbname=$db", 						$login,$mdp);
 				}
 				catch (Exception $e) {
-					die('Erreur : ' . $e->getMessage());
+					return $this->listeJoueurs;
 				}
 			$res = $linkpdo -> query('SELECT * FROM JOUEUR');
 			while ($data = $res -> fetch()) {

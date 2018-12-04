@@ -2,6 +2,7 @@
 require("ListeDeJoueur.php");
 $listeJ = new ListeDeJoueurs();
 $listeJ = $listeJ->listeJoueurs();
+$listeJ[] = new Joueur("Test","Test", "17/10/1998", 173, 65);
 ?>
 
 <!DOCTYPE HTML>
@@ -16,7 +17,7 @@ $listeJ = $listeJ->listeJoueurs();
 		<?php include("menu.php");?>
 		<div id="tableau">
 			<table>
-				<tr>
+				<tr class="entete">
 					<td>Nom</td>
 					<td>Prenom</td>
 					<td>Poste</td>
