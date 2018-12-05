@@ -14,7 +14,7 @@ $listeJ[] = new Joueur("Test","Test", "17/10/1998", 173, 65);
 	</head>
 
 	<body>
-		<?php include("menu.php");?>
+		<?php $menu = 1; include("menu.php");?>
 		<div id="tableau">
 			<table>
 				<tr class="entete">
@@ -25,11 +25,11 @@ $listeJ[] = new Joueur("Test","Test", "17/10/1998", 173, 65);
 				</tr>
 				<?php
 				foreach ($listeJ as $joueur) {
-					echo "<tr>
-							<td>".$joueur->getNom()."</td>
-							<td>".$joueur->getPrenom()."</td>
-							<td>".$joueur->getPoste()."</td>
-							<td>".$joueur->getStatut()."</td>
+					echo "<tr class=\"corp\">
+							<td><a href=\"profilJoueur.php?nom=".$joueur->getNom()."\">".$joueur->getNom()."</a></td>
+							<td><a href=\"profilJoueur.php?nom=".$joueur->getNom()."\">".$joueur->getPrenom()."</a></td>
+							<td><a href=\"profilJoueur.php?nom=".$joueur->getNom()."\">".$joueur->getPoste()."</a></td>
+							<td><a href=\"profilJoueur.php?nom=".$joueur->getNom()."\">".$joueur->getStatut()."</a></td>
 						</tr>";
 				}
 				?>
