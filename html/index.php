@@ -1,8 +1,10 @@
 <?php
 require("ListeDeJoueur.php");
 $listeJ = new ListeDeJoueurs();
-$listeJ = $listeJ->listeJoueurs();
-$listeJ[] = new Joueur("Test","Test", "17/10/1998", 173, 65);
+$listeJ->listeJoueurs();
+
+
+
 ?>
 
 <!DOCTYPE HTML>
@@ -24,6 +26,7 @@ $listeJ[] = new Joueur("Test","Test", "17/10/1998", 173, 65);
 					<td>Statut</td>
 				</tr>
 				<?php
+				$listeJ = $listeJ->getListeJoueurs();
 				foreach ($listeJ as $joueur) {
 					echo "<tr class=\"corp\">
 							<td><a href=\"profilJoueur.php?nom=".$joueur->getNom()."\">".$joueur->getNom()."</a></td>

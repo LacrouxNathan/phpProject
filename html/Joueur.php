@@ -7,18 +7,24 @@
 		private $nom;
 		private $prenom;
 		private $ddn;
+		private $photo;
 		private $taille;
 		private $poids;
+		private $numlicence;
 		private $statut; //0-> actif, 1->absent, 2->Suspendu, 3-> blesse
 		private $poste; //0-> attaquant, 1-> defenseur
+		private $commentaire;
 
-		function __construct($nom, $prenom, $ddn, $taille, $poids, $statut = 0, $poste = 0)
+		function __construct($nom, $prenom, $ddn, $photo="",$taille, $poids, $numlicence, $statut = 0, $poste = 0,$commentaire="")
 		{
 			$this->nom = $nom;
 			$this->prenom = $prenom;
 			$this->ddn = $ddn;
 			$this->taille = $taille;
 			$this->poids = $poids;
+			$this->photo = $photo;
+			$this->numlicence = $numlicence;
+			$this->commentaire = $commentaire;
 			switch ($statut) {
 				case 1:
 					$this->statut = "Absent";
@@ -68,6 +74,15 @@
 
 		function getPoste() {
 			return $this->poste;
+		}
+		function getNumLicence() {
+			return $this->numlicence;
+		}
+		function getPhoto() {
+			return $this->photo;
+		}
+		function getCommentaire() {
+			return $this->commentaire;
 		}
 	}
 ?>
