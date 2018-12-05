@@ -19,8 +19,27 @@
 			$this->ddn = $ddn;
 			$this->taille = $taille;
 			$this->poids = $poids;
-			$this->statut = $statut;
-			$this->poste = $poste;
+			switch ($statut) {
+				case 1:
+					$this->statut = "Absent";
+					break;
+				case 2:
+					$this->statut = "Suspendu";
+					break;
+				case 3:
+					$this->statut = "Blesse";
+					break;
+				default:
+					$this->statut = "actif";
+			}
+			switch ($poste) {
+				case 1:
+					$this->poste = "Defenseur";
+					break;
+				default:
+					$this->poste = "Attaquant";
+					break;
+			}
 		}
 
 		function getNom() {
