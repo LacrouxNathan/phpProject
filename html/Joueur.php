@@ -33,14 +33,14 @@
 					$this->statut = "Suspendu";
 					break;
 				case 3:
-					$this->statut = "Blesse";
+					$this->statut = "Bléssé";
 					break;
 				default:
-					$this->statut = "actif";
+					$this->statut = "Actif";
 			}
 			switch ($poste) {
 				case 1:
-					$this->poste = "Defenseur";
+					$this->poste = "Défenseur";
 					break;
 				default:
 					$this->poste = "Attaquant";
