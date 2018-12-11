@@ -14,8 +14,9 @@
 		private $statut; //0-> actif, 1->absent, 2->Suspendu, 3-> blesse
 		private $poste; //0-> attaquant, 1-> defenseur
 		private $commentaire;
+		private $id;
 
-		function __construct($nom, $prenom, $ddn, $photo="",$taille, $poids, $numlicence, $statut = 0, $poste = 0,$commentaire="")
+		function __construct($nom, $prenom, $ddn, $photo="",$taille, $poids, $numlicence, $statut = 0, $poste = 0,$commentaire="",$id)
 		{
 			$this->nom = $nom;
 			$this->prenom = $prenom;
@@ -25,6 +26,7 @@
 			$this->photo = $photo;
 			$this->numlicence = $numlicence;
 			$this->commentaire = $commentaire;
+			$this->id = $id;
 			switch ($statut) {
 				case 1:
 					$this->statut = "Absent";
@@ -83,6 +85,9 @@
 		}
 		function getCommentaire() {
 			return $this->commentaire;
+		}
+		function getId() {
+			return $this->id;
 		}
 	}
 ?>

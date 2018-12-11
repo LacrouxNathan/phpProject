@@ -28,12 +28,13 @@ $listeR->listeRencontres();
 				</tr>
 				<?php
 				$listeR = $listeR->getListeRencontres();
-				foreach ($listeR as $recontre) {
+				foreach ($listeR as $rencontre) {
 					echo "<tr class=\"corp\">
-							<td><a href=\"profilRencontre.php?nom=".$rencontre->getId()."\">".$rencontre->getAdversaire()."</a></td>
-							<td><a href=\"profilRencontre.php?nom=".$rencontre->getId()."\">".$rencontre->getPrenom()."</a></td>
-							<td><a href=\"profilRencontre.php?nom=".$rencontre->getId()."\">".$rencontre->getPoste()."</a></td>
-							<td><a href=\"profilRencontre.php?nom=".$rencontre->getId()."\">".$rencontre->getStatut()."</a></td>
+							<td><a href=\"profilRencontre.php?id=".$rencontre->getId()."\">".$rencontre->getAdversaire()."</a></td>
+							<td><a href=\"profilRencontre.php?id=".$rencontre->getId()."\">".$rencontre->getVictoire()."</a></td>
+							<td><a href=\"profilRencontre.php?id=".$rencontre->getId()."\">".$rencontre->getScore()."</a></td>
+							<td><a href=\"profilRencontre.php?id=".$rencontre->getId()."\">".$rencontre->getLieu()."</a></td>
+							<td><a href=\"profilRencontre.php?id=".$rencontre->getId()."\">".$rencontre->getDateheure()."</a></td>
 						</tr>";
 				}
 				?>
