@@ -1,35 +1,85 @@
 <?php
 require("connexion.php");
+require("Joueur.php");
 $req = $GLOBALS['linkpdo']->prepare('SELECT * FROM JOUEUR WHERE idjoueur = :lid');
 $req->execute(array('lid' => $_GET['id']));
 while ($data = $req -> fetch()) {
-    $nom = $data['nom'];
-    $prenom = $data['prenom'];
-    $photo = $data['photo'];
-    $ddn = $data['datenaissance'];
-    $taille = $data['taille'];
-    $poids = $data['poids'];
+    $joueur = new Joueur($data["nom"],$data["prenom"],$data["datenaissance"],$data["photo"],$data["taille"],
+        $data["poids"],$data["numlicence"],$data["statu"],$data["poste"],$data["commentaire"], $data["idjoueur"]);
+
 }
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="index.css">
-		<title>Liste des joueurs</title>
+		<link rel="stylesheet" href="style.css">
+        <title><?php echo "profil de ".$joueur->getNom()." ".$joueur->getPrenom();?></title>
 	</head>
 
 	<body>
-	<?php $menu = 1; include("menu.php");?>
-	<div style="float:left; margin-top: 1%">
-        <img src=<?php echo("$photo");?> alt="Photo du joueur" style="height:128px;width:128; float:left;">
-        <h1> <?php echo $nom." ".$prenom;?> </h1>
+	<?php $menu = 0; include("menu.php");?>
+    <div class="content">
+        <div id="photo">
+            <img src=<?php echo($joueur->getPhoto());?> alt="Photo du joueur">
+            <div id="donne">
+                <h1> <?php echo $joueur->getNom()." ".$joueur->getPrenom();?> </h1>
+                <h3> <?php echo $joueur->getNumLicence()?></h3>
+            </div>
+        </div>
+        <div id="infos">
+            <p>Date de naissance : <?php echo $joueur->getDdn()?></p>
+            <p>Taille            : <?php echo $joueur->getTaille()?> cm</p>
+            <p>Poids             : <?php echo $joueur->getPoids()?> Kg</p>
+            <p>Statut            : <strong><?php echo $joueur->getStatut()?></strong></p>
+            <p>Poste            : <strong><?php echo $joueur->getPoste()?></strong></p>
+        </div>
+        <div id="divtabRencontre">
+            <table id="tableprofil">
+                <thead>
+                    <tr class="entete" style="font-size: 18pt">
+                        <td>Adversaire</td>
+                        <td>Resultat de l'equipe</td>
+                        <td>Score</td>
+                        <td>Note du coach</td>
+                        <td>Lieu</td>
+                        <td>Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                    <tr><td>test</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div style="padding-left:40%">
-        <p>Date de naissance : <?php echo $ddn?></p>
-        <p>Taille            : <?php echo $taille?></p>
-        <p>Poids             : <?php echo $poids?></p>
-    </div>
-
     </body>
 </html>

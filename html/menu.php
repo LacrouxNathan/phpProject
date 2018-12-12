@@ -1,7 +1,11 @@
 <div class="vertical-menu">
-  <a href="index.php" <?php if ($menu==1) echo("class=\"active\"");?>>Liste des joueurs</a>
-  <a href="pagerencontre.php" <?php if ($menu==2) echo("class=\"active\"");?>>Liste des rencontres</a>
-  <a href="#" <?php if ($menu==3) echo("class=\"active\"");?>>Link 2</a>
-  <a href="#" <?php if ($menu==4) echo("class=\"active\"");?>>Link 3</a>
-  <a href="#" <?php if ($menu==5) echo("class=\"active\"");?>>Link 4</a>
+    <nav class="col-md-2 d-none d-md-block sidebar">
+        <div class="sidebar-header">
+            <h3>Club de tennis de table</h3>
+        </div>
+        <ul class="list component">
+            <li><a href="index.php" <?php if ($menu==1) echo("class=\"active\"");?>>Liste des joueurs</a></li>
+            <li><a href="pagerencontre.php" <?php if ($menu==2) echo("class=\"active\"");?>>Liste des rencontres</a></li>
+        </ul>
+    </nav>
 </div> 

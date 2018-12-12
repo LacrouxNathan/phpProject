@@ -20,7 +20,6 @@
 		{
 			$this->nom = $nom;
 			$this->prenom = $prenom;
-			$this->ddn = $ddn;
 			$this->taille = $taille;
 			$this->poids = $poids;
 			$this->photo = $photo;
@@ -48,6 +47,10 @@
 					$this->poste = "Attaquant";
 					break;
 			}
+
+			//fommatage de la date
+            $date = new DateTime($ddn);
+			$this->ddn = $date->format("d-m-Y");
 		}
 
 		function getNom() {
