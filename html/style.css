@@ -29,7 +29,7 @@ strong {
 }
 
 .vertical-menu a.active {
-    background-color: rgb(255, 175, 71); /* Add a green color to the "active/current" link */
+    background-color: rgb(255, 175, 71); 
     color: white;
 }
 
@@ -48,6 +48,33 @@ strong {
 td {
     border: 1px solid black;
 }
+
+/*###Bouton ajouterjoueur###*/
+.add{
+	width : 130px;
+	height : 50px;
+	background-color:rgb(255, 175, 71);
+	position : fixed;
+	bottom  : 0;
+	right: 0;
+	margin-right : 1%;
+	margin-bottom : 1%;
+	text-align : center;
+	line-height: 50px;	
+	text-decoration : none;
+	color : white;
+	font-weight : bold;
+	border : solid;
+	border-width : 5px;
+}
+
+.add:hover{
+	background-color:white;
+	color: rgb(255, 175, 71);
+	border-color : rgb(255, 175, 71);
+}
+
+
 /*###Tableau Style###*/
 
 #tableindex {
@@ -59,7 +86,7 @@ td {
 .tableau {
     float: left;
     width: 79%;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .entete {
@@ -112,4 +139,95 @@ td {
 #tableprofil {
     border-collapse: collapse;
     width: 100%;
+}
+
+/*###Bouton editjoueur###*/
+.edit{
+	width : 150px;
+	height : 50px;
+	background-color:rgb(255, 175, 71);
+	position : fixed;
+	bottom  : 0;
+	right: 0;
+	margin-right : 1%;
+	margin-bottom : 1%;
+	text-align : center;
+	line-height: 50px;	
+	text-decoration : none;
+	color : white;
+	font-weight : bold;
+	border : solid;
+	border-width : 5px;
+}
+
+.edit:hover{
+	background-color:white;
+	color: rgb(255, 175, 71);
+	border-color : rgb(255, 175, 71);
+}
+
+/*###Bouton deljoueur###*/
+.del{
+	width : 150px;
+	height : 50px;
+	background-color:rgb(255, 175, 71);
+	position : fixed;
+	bottom  : 0;
+	right: 170px;
+	margin-right : 1%;
+	margin-bottom : 1%;
+	text-align : center;
+	line-height: 50px;	
+	text-decoration : none;
+	color : white;
+	font-weight : bold;
+	border : solid;
+	border-width : 5px;
+}
+
+.del:hover{
+	background-color:white;
+	color: rgb(255, 175, 71);
+	border-color : rgb(255, 175, 71);
+}
+
+/*###Bouton add rencontre###*/
+.addr{
+	width : 150px;
+	height : 50px;
+	background-color:rgb(255, 175, 71);
+	position : fixed;
+	bottom  : 0;
+	right: 0;
+	margin-right : 1%;
+	margin-bottom : 1%;
+	text-align : center;
+	line-height: 50px;	
+	text-decoration : none;
+	color : white;
+	font-weight : bold;
+	border : solid;
+	border-width : 5px;
+}
+
+.addr:hover{
+	background-color:white;
+	color: rgb(255, 175, 71);
+	border-color : rgb(255, 175, 71);
+}
+
+/*### Page Rencontre ###*/
+
+.affrenc p {
+	font-size : 18pt;
+}
+
+/*### Page Ajout Rencontre / Joueur ###*/
+
+.form {
+	font-size : 15pt;
+}
+
+.adv {
+	margin-right : 100px;
 }

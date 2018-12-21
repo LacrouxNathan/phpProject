@@ -5,9 +5,10 @@ $req = $GLOBALS['linkpdo']->prepare('SELECT * FROM JOUEUR WHERE idjoueur = :lid'
 $req->execute(array('lid' => $_GET['id']));
 while ($data = $req -> fetch()) {
     $joueur = new Joueur($data["nom"],$data["prenom"],$data["datenaissance"],$data["photo"],$data["taille"],
-        $data["poids"],$data["numlicence"],$data["statu"],$data["poste"],$data["commentaire"], $data["idjoueur"]);
+        $data["poids"],$data["numlicence"],$data["statut"],$data["poste"],$data["commentaire"], $data["idjoueur"]);
 
 }
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -81,5 +82,12 @@ while ($data = $req -> fetch()) {
             </table>
         </div>
     </div>
+    <div>
+    		
+    		<?php echo "<a id=\"boutonedit\" href=\"editjoueur.php?idj=".$joueur->getId()."\"> <div class=\"edit\"> Modifier Joueur </div> </a>" ?>
+    		<?php echo "<a id=\"boutondel\" href=\"index.php?idj=".$joueur->getId()."&del=1"."\"> <div class=\"del\"> Supprimer Joueur </div> </a>" ?>		
+	
+							
+    </div
     </body>
 </html>
