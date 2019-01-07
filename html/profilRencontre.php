@@ -31,4 +31,6 @@ $req->execute(array('lid' => $_GET['id']));
 	</div>
 	
     </body>
+    			<?php echo "<a id=\"boutonedit\" href=\"editrencontre.php?idj=".$rencontre->getId()."\"> <div class=\"edit\"> Modifier rencontre </div> </a>" ?>
+	    		<?php echo "<a id=\"boutondel\" href=\"supprimerrencontre.php?idj=".$rencontre->getId()."\"> <div class=\"delr\"> Supprimer Rencontre </div> </a>" ?>		
 </html>

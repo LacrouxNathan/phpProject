@@ -200,6 +200,32 @@ td {
 	border-color : rgb(255, 175, 71);
 }
 
+
+/*###Bouton delrencontre###*/
+.delr{
+	width : 200px;
+	height : 50px;
+	background-color:rgb(255, 175, 71);
+	position : fixed;
+	bottom  : 0;
+	right: 170px;
+	margin-right : 1%;
+	margin-bottom : 1%;
+	text-align : center;
+	line-height: 50px;	
+	text-decoration : none;
+	color : white;
+	font-weight : bold;
+	border : solid;
+	border-width : 5px;
+}
+
+.delr:hover{
+	background-color:white;
+	color: rgb(255, 175, 71);
+	border-color : rgb(255, 175, 71);
+}
+
 /*###Bouton add rencontre###*/
 .addr{
 	width : 150px;
