@@ -16,7 +16,7 @@
 		private $commentaire;
 		private $id;
 
-		function __construct($nom, $prenom, $ddn, $photo="",$taille, $poids, $numlicence, $statut = 0, $poste = 0,$commentaire="",$id)
+		function __construct($nom, $prenom, $ddn, $photo="",$taille, $poids, $numlicence, $statut = 0, $poste = 0,$commentaire,$id)
 		{
 			$this->nom = $nom;
 			$this->prenom = $prenom;

@@ -11,7 +11,8 @@ if (isset($_POST['nom'])) {
 	$poids = $_POST['poids'];
 	$statut = $_POST['statut'];
 	$poste = $_POST['poste'];
-	$req = $GLOBALS['linkpdo']->prepare('UPDATE JOUEUR SET nom = :nom, prenom = :prenom,datenaissance = :ddn, photo = :photo, numlicence = :numlicence, taille = :taille,poids = :poids, statut = :statut, poste =:poste)');
+	$commentaire = $_POST['commentaire'];
+	$req = $GLOBALS['linkpdo']->prepare('UPDATE JOUEUR SET nom = :nom, prenom = :prenom,datenaissance = :ddn, photo = :photo, numlicence = :numlicence, taille = :taille,poids = :poids, statut = :statut, poste =:poste, commentaire = :commentaire)');
 
 $req->execute(array('nom' => $nom,
 		    	'prenom' => $prenom,
@@ -21,7 +22,8 @@ $req->execute(array('nom' => $nom,
 		    	'taille' => $taille,
 		    	'poids' => $poids,
 		    	'statut' => $statut,
-		    	'poste' => $poste));
+		    	'poste' => $poste,
+		    	'commentaire' => $commentaire));
 }
 
 
@@ -41,10 +43,10 @@ while ($data = $req -> fetch()) {
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style.css">
-        <title>Nouveau Joueur</title>
+        <title>Modifier Joueur</title>
     </head>
     <body>
-        <form action="editjoueur.php" method="post">
+        <form action="index.php" method="post">
 	Nom : <input type="text" name="nom" required minlength="1" maxlength="30" value="<?php echo $joueur->getNom() ?>"> <br />
 	Prénom : <input type="text" name="prenom" required minlength="1" maxlength="30"value="<?php echo $joueur->getPrenom() ?>"> <br />
 	Numéro de licence : <input type="text" name="numlicence" required minlength="8" maxlength="8"value="<?php echo $joueur->getNumLicence() ?>"><br />
@@ -54,6 +56,8 @@ while ($data = $req -> fetch()) {
 	Poids : <input type="text" name="poids" required minlength="2" maxlength="3"value="<?php echo $joueur->getPoids() ?>"> <br />
 	Statut : <input type="text" name="statut" required minlength="1" maxlength="8"value="<?php echo $joueur->getStatut() ?>"> <br />
 	Poste : <input type="text" name="poste" required minlength="1" maxlength="9"value="<?php echo $joueur->getPoste() ?>"> <br />
+	Commentaire : <textarea name="commentaire" rows="5" cols="40"><?php echo $joueur->getCommentaire();?></textarea>
+	
 	<input type="submit" value="Modifier">
 	<input type="reset" value="Reset">
     </body>

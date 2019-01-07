@@ -16,6 +16,8 @@
 	Poids : <input type="text" name="poids" required minlength="2" maxlength="3"> <br />
 	Statut : <input type="text" name="statut" required minlength="1" maxlength="8"> <br />
 	Poste : <input type="text" name="poste" required minlength="1" maxlength="9"> <br />
+	Commentaire : <textarea name="commentaire" rows="5" cols="40"></textarea>
+
 	<input type="submit" value="OK">
 	<input type="reset" value="Reset">
     </body>
@@ -35,9 +37,10 @@ if (isset($_POST['nom'])) {
 	$poids = $_POST['poids'];
 	$statut = $_POST['statut'];
 	$poste = $_POST['poste'];
+	$commentaire = $_POST['commentaire'];
 
 
-$req = $GLOBALS['linkpdo']->prepare('INSERT INTO JOUEUR(nom,prenom,datenaissance,photo,numlicence,taille,poids,statut,poste) VALUES(:nom,:prenom,:ddn,:photo,:numlicence,:taille,:poids,:statut,:poste)');
+$req = $GLOBALS['linkpdo']->prepare('INSERT INTO JOUEUR(nom,prenom,datenaissance,photo,numlicence,taille,poids,statut,poste,commentaire) VALUES(:nom,:prenom,:ddn,:photo,:numlicence,:taille,:poids,:statut,:poste,:commentaire)');
 
 $test = $GLOBALS['linkpdo']->prepare('SELECT * from JOUEUR where numlicence = :lenum');
 $test->execute(array('lenum' => $numlicence));
@@ -51,7 +54,8 @@ if(empty($result)) {
 		    	'taille' => $taille,
 		    	'poids' => $poids,
 		    	'statut' => $statut,
-		    	'poste' => $poste));
+		    	'poste' => $poste,
+		    	'commentaire' => $commentaire));
 } else {
 	echo "Un joueur possédant ce numéro de licence existe déjà";
 }

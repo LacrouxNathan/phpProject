@@ -35,6 +35,7 @@ $listeJ->listeJoueurs();
 							"<td><a href=\"profilJoueur.php?id=".$joueur->getId()."\">".$joueur->getStatut()."</a></td>".
 						"</tr>";
 				}
+			
 				?>
 			</table>
 		</div>
