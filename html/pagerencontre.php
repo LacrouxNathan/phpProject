@@ -40,5 +40,6 @@ $listeR->listeRencontres();
 				?>
 			</table>
 		</div>
+			<a id="boutonaddr" href=ajoutrencontre.php> <div class="addr"> Ajouter Rencontre </div> </a>
 	</body>
 </html>

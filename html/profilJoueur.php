@@ -8,7 +8,6 @@ $req->execute(array('lid' => $_GET['id']));
 while ($data = $req -> fetch()) {
     $joueur = new Joueur($data["nom"],$data["prenom"],$data["datenaissance"],$data["photo"],$data["taille"],
         $data["poids"],$data["numlicence"],$data["statut"],$data["poste"],$data["commentaire"], $data["idjoueur"]);
-
 }
 $req->closeCursor();
 
@@ -18,6 +17,7 @@ $res = array();
 while ($data = $req -> fetch()) {
     $res[] = array(new Rencontre($data["dateheure"],$data["adversaire"],$data["victoire"], $data["lieu"], $data["score"], $data["id"]), $data["note"]);
 }
+<<<<<<< HEAD
 $req->closeCursor();
 ?>
 <!DOCTYPE HTML>
@@ -73,5 +73,12 @@ $req->closeCursor();
             </table>
         </div>
     </div>
+    <div>
+    		
+    		<?php echo "<a id=\"boutonedit\" href=\"editjoueur.php?idj=".$joueur->getId()."\"> <div class=\"edit\"> Modifier Joueur </div> </a>" ?>
+    		<?php echo "<a id=\"boutondel\" href=\"index.php?idj=".$joueur->getId()."&del=1"."\"> <div class=\"del\"> Supprimer Joueur </div> </a>" ?>		
+	
+							
+    </div
     </body>
 </html>

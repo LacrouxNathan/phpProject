@@ -38,5 +38,9 @@ $listeJ->listeJoueurs();
 				?>
 			</table>
 		</div>
+		
+		
+			<a id="boutonadd" href=ajoutjoueur.php> <div class="add"> Ajouter Joueur </div> </a>
+		
 	</body>
 </html>
