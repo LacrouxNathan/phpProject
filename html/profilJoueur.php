@@ -1,13 +1,24 @@
 <?php
 require("connexion.php");
 require("Joueur.php");
+require("Rencontre.php");
+
 $req = $GLOBALS['linkpdo']->prepare('SELECT * FROM JOUEUR WHERE idjoueur = :lid');
 $req->execute(array('lid' => $_GET['id']));
 while ($data = $req -> fetch()) {
     $joueur = new Joueur($data["nom"],$data["prenom"],$data["datenaissance"],$data["photo"],$data["taille"],
-        $data["poids"],$data["numlicence"],$data["statu"],$data["poste"],$data["commentaire"], $data["idjoueur"]);
+        $data["poids"],$data["numlicence"],$data["statut"],$data["poste"],$data["commentaire"], $data["idjoueur"]);
 
 }
+$req->closeCursor();
+
+$req = $GLOBALS['linkpdo']->prepare('SELECT r.adversaire, r.victoire, r.score, p.note, r.lieu, r.dateheure, r.idrencontre FROM RENCONTRE r, PARTICIPER p, JOUEUR j WHERE j.idjoueur = :lid AND j.idjoueur = p.idjoueur AND p.idrencontre = r.idrencontre');
+$req->execute(array('lid' => $_GET['id']));
+$res = array();
+while ($data = $req -> fetch()) {
+    $res[] = array(new Rencontre($data["dateheure"],$data["adversaire"],$data["victoire"], $data["lieu"], $data["score"], $data["id"]), $data["note"]);
+}
+$req->closeCursor();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -32,7 +43,7 @@ while ($data = $req -> fetch()) {
             <p>Taille            : <?php echo $joueur->getTaille()?> cm</p>
             <p>Poids             : <?php echo $joueur->getPoids()?> Kg</p>
             <p>Statut            : <strong><?php echo $joueur->getStatut()?></strong></p>
-            <p>Poste            : <strong><?php echo $joueur->getPoste()?></strong></p>
+            <p>Poste             : <strong><?php echo $joueur->getPoste()?></strong></p>
         </div>
         <div id="divtabRencontre">
             <table id="tableprofil">
@@ -47,36 +58,17 @@ while ($data = $req -> fetch()) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
-                    <tr><td>test</td></tr>
+                    <?php foreach ($res as $ligne) {
+                    echo "<tr class=\"corp\">".
+                        "<td><a href=\"profilRencontre.php?id=".$ligne[0]->getId()."\">".$ligne[0]->getAdversaire()."</a></td>".
+                        "<td><a href=\"profilRencontre.php?id=".$ligne[0]->getId()."\">".$ligne[0]->getVictoire()."</a></td>".
+                        "<td><a href=\"profilRencontre.php?id=".$ligne[0]->getId()."\">".$ligne[0]->getScore()."</a></td>".
+                        "<td><a href=\"profilRencontre.php?id=".$ligne[0]->getId()."\">".$ligne[1]  ."</a></td>".
+                        "<td><a href=\"profilRencontre.php?id=".$ligne[0]->getId()."\">".$ligne[0]->getLieu()."</a></td>".
+                        "<td><a href=\"profilRencontre.php?id=".$ligne[0]->getId()."\">".$ligne[0]->getDateHeure()."</a></td>".
+                        "</tr>";
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
