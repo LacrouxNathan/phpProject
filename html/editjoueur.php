@@ -40,6 +40,7 @@ while ($data = $req -> fetch()) {
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css">
         <title>Nouveau Joueur</title>
     </head>
     <body>
@@ -56,4 +57,5 @@ while ($data = $req -> fetch()) {
 	<input type="submit" value="Modifier">
 	<input type="reset" value="Reset">
     </body>
+        <a id="boutonadd" href=index.php> <div class="add"> Retour </div> </a>
 </html>

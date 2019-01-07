@@ -17,7 +17,7 @@ $res = array();
 while ($data = $req -> fetch()) {
     $res[] = array(new Rencontre($data["dateheure"],$data["adversaire"],$data["victoire"], $data["lieu"], $data["score"], $data["id"]), $data["note"]);
 }
-<<<<<<< HEAD
+
 $req->closeCursor();
 ?>
 <!DOCTYPE HTML>
@@ -76,7 +76,7 @@ $req->closeCursor();
     <div>
     		
     		<?php echo "<a id=\"boutonedit\" href=\"editjoueur.php?idj=".$joueur->getId()."\"> <div class=\"edit\"> Modifier Joueur </div> </a>" ?>
-    		<?php echo "<a id=\"boutondel\" href=\"index.php?idj=".$joueur->getId()."&del=1"."\"> <div class=\"del\"> Supprimer Joueur </div> </a>" ?>		
+    		<?php echo "<a id=\"boutondel\" href=\"supprimer.php?idj=".$joueur->getId()."\"> <div class=\"del\"> Supprimer Joueur </div> </a>" ?>		
 	
 							
     </div
